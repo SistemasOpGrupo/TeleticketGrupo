@@ -1,0 +1,15 @@
+{
+  "tickets": [
+    {
+      "id": 1,
+      "dni": "12345678",
+      "name": "Nicolas Haro",
+      "mobile": "Entel",
+      "email": "delegado@upc.edu.pe",
+      "address": "Surco",
+      "date": "2019-10-10",
+      "time": "10:00",
+      "price": "S/. 10.00"
+    }
+  ]
+}

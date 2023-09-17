@@ -1,0 +1,82 @@
+<p>
+    <mat-toolbar color="primary">
+        <span>TeleTicket :D</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+</p>
+
+<form (submit)="onSubmit()" #ticketForm='ngForm'>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Dni" name="Dni" required [(ngModel)]="ticketData.dni">
+      </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Nombre" name="Name" required [(ngModel)]="ticketData.name">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Email" name="email" required [(ngModel)]="ticketData.email">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Address" name="address" required [(ngModel)]="ticketData.address">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Date" name="date" required [(ngModel)]="ticketData.date">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Time" name="time" required [(ngModel)]="ticketData.time">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Price" name="price" required [(ngModel)]="ticketData.price">
+      </mat-form-field>
+      <button mat-button color="primary" (click)="addTicket()">Add</button> &nbsp;
+  <br>
+  </form>
+   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+   
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dni">
+        <th mat-header-cell *matHeaderCellDef> Dni </th>
+        <td mat-cell *matCellDef="let element"> {{element.dni}} </td>
+      </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+      </ng-container>
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef> Time </th>
+        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page">
+</mat-paginator>
